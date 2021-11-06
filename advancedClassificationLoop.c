@@ -1,6 +1,5 @@
 #include <stdio.h> 
 #include <math.h>
-#include <string.h>
 #include "advancedClassificationLoop.h"
 
 int isArmstrong(int i){
@@ -21,17 +20,18 @@ int isArmstrong(int i){
        } return 1;
     return 0; } 
 
-    
-    
     int isPalindrome(int p){
-        str poli = itoa(p);
-        int len= strlen(poli);
-        for(int i=0,j=len-1;i=j;i--,j--){
-            if(poli[i]!=poli[j]){
-                return 0;
-                i++;
-                j--;
-            }
-        }
-        return 1;
+    int r=p;
+    int polirev= 0;
+    int rest;
+    
+    while (r != 0) {
+        rest = r % 10;
+        polirev = polirev * 10 + rest;
+        r /= 10;
+    }
+    if (polirev == p){
+        return 1;}
+
+    return 0;
     }
